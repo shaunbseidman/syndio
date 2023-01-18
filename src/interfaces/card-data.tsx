@@ -1,9 +1,9 @@
 export interface CardData {
-  cardData: PayEquityGapData[];
+  cardData: GroupData[];
 }
 
 
-interface PayEquityGapData {
+interface GroupData {
   label: string;
   data?: {
     label?: string;
