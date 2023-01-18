@@ -1,0 +1,39 @@
+@import "../../styles/mixins.scss";
+
+.card {
+  &-tabs {
+    
+    &-wrapper {
+      display: flex;
+      padding-left: $remSpacing3;
+      padding-right: $remSpacing3;
+    }
+  }
+
+  &-tab {
+    cursor: pointer;
+    width: 200px;
+    height: 40px;
+    text-align: center;
+    padding-top: $remSpacing2;
+    background-color: $brandGrey1Inactive;
+
+    &.active {
+      border-top: 1px solid $brandGrey2;
+      border-left: 1px solid $brandGrey2;
+      border-right: 1px solid $brandGrey2;
+      background-color: $brandGrey1Active;
+    }
+  }
+
+  &-content {
+    &.active {
+      background-color: $brandGrey1Active;
+    }
+
+    &-grid {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+  }
+}

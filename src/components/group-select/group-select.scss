@@ -1,0 +1,61 @@
+@import "../../styles/mixins.scss";
+
+.drop-down {
+  background-color: $brandBlack2;
+  height: 40px;
+  width: 200px;
+  cursor: pointer;
+
+  &:active {
+    border: 1px solid $brandActive;
+  }
+
+  &-container {
+    max-width: 200px;
+    background-color: $brandWhite;
+    margin-top: 0px;
+    padding-left: $remSpacing2;
+    box-shadow: 7px 7px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+  }
+
+  &-chevron {
+    height: 16px;
+    width: 16px;
+  }
+
+  &-wrapper {
+    display: flex;
+    justify-content: space-between;
+    padding: $remSpacing2;
+  }
+
+  &-item {
+    list-style: none;
+    padding-top: $remSpacing2;
+    @include body();
+
+
+    &:last-child {
+      padding-bottom: $remSpacing2;
+    }
+
+    &.active {
+      color: $brandGrey1Active;
+      cursor: none;
+    }
+
+    &.default {
+     color: $fontGreyActive; 
+    }
+
+    &.inactive {
+      cursor: pointer;
+    }
+  }
+
+  &-selection {
+    @include body();
+    color: $brandWhite;
+  }
+}
