@@ -1,9 +1,14 @@
-import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+describe('App', () => {
+  it('should render the Header component', () => {
+    const { container } = render(<App />);
+    expect(container.querySelector(`[class*="header"]`)).toBeInTheDocument();
+  });
+
+  it('should render the CardTabs component', () => {
+    const { container } = render(<App />);
+    expect(container.querySelector(`[class*="card-tabs"]`)).toBeInTheDocument();
+  });
 });

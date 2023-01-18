@@ -1,6 +1,8 @@
 @import "../../styles/mixins.scss";
 
 .card-grid {
+  display: block;
+
   @include mqViewportSm {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -12,8 +14,6 @@
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: $remSpacing3;
   }
-
-  display: block;
 
   &-wrapper {
     @include mqViewportSm {
