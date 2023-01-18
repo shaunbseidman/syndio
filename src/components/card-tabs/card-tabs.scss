@@ -2,7 +2,6 @@
 
 .card {
   &-tabs {
-    
     &-wrapper {
       display: flex;
       padding-left: $remSpacing3;
@@ -20,11 +19,11 @@
 
     &.active {
       border-top: 1px solid $brandGrey2;
-      border-bottom: 1px solid #F8F8F8;
+      border-bottom: 1px solid $brandWhite2;
       border-left: 1px solid $brandGrey2;
       border-right: 1px solid $brandGrey2;
       background-color: $brandWhite2;
-      z-index: 999999999999;
+      z-index:8888;
       margin-bottom: -10px;
     }
 
@@ -36,6 +35,17 @@
 
       &.active {
         color: $fontGreyActive;
+      }
+    }
+
+    &.default-tab {
+      &.active {
+        border: none;
+        background-color: $brandGrey1Inactive;
+
+        .card-tab-title {
+          color: $fontGreyInactive;
+        }
       }
     }
   }
@@ -53,3 +63,5 @@
     }
   }
 }
+
+.default-tab {}

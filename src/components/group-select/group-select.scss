@@ -1,13 +1,25 @@
 @import "../../styles/mixins.scss";
 
 .drop-down {
-  background-color: $brandBlack2;
-  height: 40px;
-  width: 200px;
-  cursor: pointer;
+  z-index: 999999999999;
+  position: relative;
+  margin-top: $remSpacing3;
+  margin-bottom: $remSpacing3;
+  
+   @include mqViewportSm {
+    margin-bottom: 0px;
+    margin-top: 0px;
+   }
 
-  &:active {
-    border: 1px solid $brandActive;
+  &-select {
+    background-color: $brandBlack2;
+    height: 40px;
+    width: 200px;
+    cursor: pointer;
+  
+    &:active {
+      border: 1px solid $brandActive;
+    }
   }
 
   &-container {
@@ -46,7 +58,7 @@
 
     &.active {
       color: $brandGrey1Active;
-      cursor: none;
+      pointer-events: none;
     }
 
     &.default {

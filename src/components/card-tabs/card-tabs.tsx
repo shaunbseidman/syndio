@@ -20,10 +20,19 @@ const CardTabs: React.FC<props> = ({
 }) => {
   const [selectedTab, setSelectedTab] = useState('tab1');
   const [data, setData] = useState<GroupDataInterface[]>([]);
+  const [defaultLabel, setDefaultLable] = useState('');
+
   
-  function handleTabClick(tab: string):void {
+  function handleTabClick(tab: string, label: string):void {
     setSelectedTab(tab);
+    if (label === '') {
+      alert('Please select a group from the dropdown 😊')
+    }
   }
+
+  useEffect(() => {
+    setDefaultLable(label);
+  });
 
   useEffect(() => {
     if (label === GroupValues.GBF) {
@@ -33,8 +42,8 @@ const CardTabs: React.FC<props> = ({
           //this is ugly but in order to map each nested object onto the cards - need to turn it into array
           const dataArray = [{ ...data }];
           setData(dataArray);
-        });
-
+        }
+      );
     } else if (label === GroupValues.GBR) {
       fetch('https://run.mocky.io/v3/f1b01b57-3147-476a-a632-0c10ad2a3c1a')
         .then(response => response.json())
@@ -42,15 +51,16 @@ const CardTabs: React.FC<props> = ({
           //this is ugly but in order to map each nested object onto the cards - need to turn it into array
           const dataArray = [{ ...data }];
           setData(dataArray);
-        });
+        }
+      );
     }
   }, [label]);
   return (
     <div className='card-tabs'>
       <div className='card-tabs-wrapper'>
         <div
-          className={classnames('card-tab', { 'active': selectedTab === 'tab1' })}
-          onClick={() => handleTabClick('tab1')}
+          className={classnames('card-tab', { 'active': selectedTab === 'tab1', 'default-tab': defaultLabel === '' })}
+          onClick={() => handleTabClick('tab1', label)}
         >
           <h5
             className={classnames('card-tab-title', { 'active': selectedTab === 'tab1' })}
@@ -60,8 +70,8 @@ const CardTabs: React.FC<props> = ({
           </h5>
         </div>
         <div
-          className={classnames('card-tab', { 'active': selectedTab === 'tab2' })}
-          onClick={() => handleTabClick('tab2')}
+          className={classnames('card-tab', { 'active': selectedTab === 'tab2', 'default-tab': defaultLabel === '' })}
+          onClick={() => handleTabClick('tab2', label)}
         >
           <h5
             className={classnames('card-tab-title', { 'active': selectedTab === 'tab2' })}

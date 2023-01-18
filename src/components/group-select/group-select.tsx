@@ -43,10 +43,10 @@ const GroupSelect: React.FC<props> = ({
   }, []);
 
   return (
-    <div>
+    <div className='drop-down'>
       <div 
         onClick={() => setIsOpen(!isOpen)}
-        className='drop-down'
+        className='drop-down-select'
       >
         <div className='drop-down-wrapper'>
           <div 
