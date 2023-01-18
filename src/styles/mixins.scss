@@ -29,7 +29,7 @@ $font-proxima-nova: 'proxima-nova', Arial, Helvetica, sans-serif;
     font: 400 18px/28.5px $font-proxima-nova;
   }
 
-  font: 600 12px/27px $font-proxima-nova;
+  font: 400 12px/27px $font-proxima-nova;
 }
 
 @mixin bodySmall() {
@@ -46,6 +46,7 @@ $brandWhite: #FFFFFF;
 $brandGrey2: #E7E7E7;
 $fontGreyActive: #2E2E2E;
 $fontGreyInactive: #666666;
+$brandWhite2: #F8F8F8;
 
 $maxPageWidth: 1200px;
 

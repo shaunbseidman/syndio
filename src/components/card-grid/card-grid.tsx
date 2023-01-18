@@ -1,13 +1,16 @@
 import React from 'react';
 import Cards from '../cards/cards';
 import './card-grid.scss'
+import { GroupInterface } from '../../interfaces/group';
 
-export interface props { gender: any, id: any}
+export interface props { 
+  groupByType: GroupInterface, 
+}
 
 const CardGrid: React.FC<props> = ({
-  gender, id
+  groupByType
 }) => {
-  const dataArray = Object.values(gender).map(item => [item]);
+  const dataArray = Object.values(groupByType).map(item => [item]);
   return (
     <div className='card-grid'>
       {dataArray.map((item, index) => (
@@ -15,14 +18,11 @@ const CardGrid: React.FC<props> = ({
           key={index}
           className='card-grid-wrapper'
         >
-          <Cards
-            items={item}
-          />
+          <Cards cardData={item} />
         </div>
       ))}
     </div>
   );
-
 }
 
 export default CardGrid;

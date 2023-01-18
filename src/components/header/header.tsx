@@ -3,8 +3,10 @@ import logo from '../../assets/syndio-logo.svg'
 import './header.scss';
 import GroupSelect from '../group-select/group-select';
 
+type GroupChangeFunction = (label: string) => void;
+
 export interface props {
-  onGroupChange: any
+  onGroupChange: GroupChangeFunction;
 }
 
 const Header: React.FC<props> =({

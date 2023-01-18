@@ -2,6 +2,8 @@
 
 
 .card-item {
+  padding: $remSpacing3;
+
   &-title {
     @include bodySmall();
     color: $fontGreyInactive;    

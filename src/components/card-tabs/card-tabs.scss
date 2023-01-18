@@ -20,20 +20,36 @@
 
     &.active {
       border-top: 1px solid $brandGrey2;
+      border-bottom: 1px solid #F8F8F8;
       border-left: 1px solid $brandGrey2;
       border-right: 1px solid $brandGrey2;
-      background-color: $brandGrey1Active;
+      background-color: $brandWhite2;
+      z-index: 999999999999;
+      margin-bottom: -10px;
+    }
+
+    &-title {
+      @include body();
+      margin-bottom:0px;
+      margin-top: 0.2rem;
+      color: $fontGreyInactive;
+
+      &.active {
+        color: $fontGreyActive;
+      }
     }
   }
 
   &-content {
     &.active {
-      background-color: $brandGrey1Active;
+      background-color: $brandWhite2;
     }
 
     &-grid {
-      padding-left: 24px;
-      padding-right: 24px;
+      padding: $remSpacing3;
+      padding-right: $remSpacing3;
+      padding-top: $remSpacing3;
+      border-top: 1px solid $brandGrey2;
     }
   }
 }

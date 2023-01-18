@@ -22,12 +22,16 @@
   &-chevron {
     height: 16px;
     width: 16px;
+    padding-top: $remSpacing1;
   }
 
   &-wrapper {
     display: flex;
     justify-content: space-between;
-    padding: $remSpacing2;
+    padding-left: $remSpacing2;
+    padding-right: $remSpacing2;
+    padding-top: $remSpacing1;
+
   }
 
   &-item {

@@ -1,13 +1,25 @@
 @import "../../styles/mixins.scss";
 
 .card-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 24px;
+  @include mqViewportSm {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: $remSpacing3;
+  }
+  
+  @include mqViewportMd {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: $remSpacing3;
+  }
+
+  display: block;
 
   &-wrapper {
-  border: 2px solid red;
-  background-color: $brandWhite;
-
+    @include mqViewportSm {
+      margin-bottom: 0px;
+    }
+    background-color: $brandWhite;
+    margin-bottom: $remSpacing3;
   }
 }

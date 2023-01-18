@@ -3,13 +3,19 @@ import classNames from 'classnames';
 import './group-select.scss';
 import chevron from '../../assets/chevron.svg'
 import { GroupInterface } from '../../interfaces/group';
-export interface props { onGroupChange: any }
+import { GroupValues } from '../../interfaces/values.enum';
+
+type GroupChangeFunction = (label: string) => void;
+
+export interface props { 
+  onGroupChange: GroupChangeFunction;
+}
 
 const GroupSelect: React.FC<props> = ({
   onGroupChange
 }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [pickedGroup, setPickedGroup] = useState('');
+  const [pickedGroup, setPickedGroup] = useState('Choose a group');
   const [defaultGroup, setDefaultGroup] = useState('');
   const [endpointData, setEndpointData] = useState([]);
   const ref = useRef<HTMLUListElement>(null);
@@ -47,7 +53,7 @@ const GroupSelect: React.FC<props> = ({
             className='drop-down-selection'
             aria-label={pickedGroup}
           >
-            {pickedGroup}
+            {pickedGroup === GroupValues.GBF ? GroupValues.G1 : pickedGroup === GroupValues.GBR ? GroupValues.G2 : 'Choose a group'}
           </div>
           <img
             className="drop-down-chevron"
@@ -73,7 +79,7 @@ const GroupSelect: React.FC<props> = ({
                 onGroupChange(item.label); 
               }}
             >
-              {item.label}
+              {item.label === GroupValues.GBF ? GroupValues.G1 : item.label === GroupValues.GBR ? GroupValues.G2 : null}
             </li>
           ))}
         </ul>
