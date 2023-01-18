@@ -2,11 +2,11 @@
 
 .header {
   @include mqViewportSm {
-    height: 70px;
+    height: $headerHeight;
   }
   background-color: $brandBlack1;
   padding: $remSpacing3 $remSpacing3 $remSpacing1 $remSpacing3;
-  margin-bottom: 24px;
+  margin-bottom: $remSpacing3;
 
   &-container {
     @include mqViewportSm {

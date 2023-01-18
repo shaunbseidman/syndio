@@ -14,7 +14,7 @@
   &-select {
     background-color: $brandBlack2;
     height: 40px;
-    width: 200px;
+    width: $selectWidth;
     cursor: pointer;
   
     &:active {
@@ -23,7 +23,7 @@
   }
 
   &-container {
-    max-width: 200px;
+    max-width: $selectWidth;
     background-color: $brandWhite;
     margin-top: 0px;
     padding-left: $remSpacing2;
@@ -32,8 +32,8 @@
   }
 
   &-chevron {
-    height: 16px;
-    width: 16px;
+    height: $remSpacing2;
+    width: $remSpacing2;
     padding-top: $remSpacing1;
   }
 
@@ -43,7 +43,6 @@
     padding-left: $remSpacing2;
     padding-right: $remSpacing2;
     padding-top: $remSpacing1;
-
   }
 
   &-item {

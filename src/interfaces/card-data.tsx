@@ -2,7 +2,6 @@ export interface CardData {
   cardData: GroupData[];
 }
 
-
 interface GroupData {
   label: string;
   data?: {

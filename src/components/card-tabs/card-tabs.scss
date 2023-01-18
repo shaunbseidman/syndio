@@ -11,7 +11,7 @@
 
   &-tab {
     cursor: pointer;
-    width: 200px;
+    width: $selectWidth;
     height: 40px;
     text-align: center;
     padding-top: $remSpacing2;
@@ -63,5 +63,3 @@
     }
   }
 }
-
-.default-tab {}

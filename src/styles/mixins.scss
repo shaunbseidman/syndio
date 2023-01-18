@@ -75,6 +75,9 @@ $viewport-sm-max: ($viewport-md-width - 1);
 $viewport-md-max: ($viewport-lg-width - 1);
 $viewport-lg-max: ($viewport-xl-width - 1);
 
+$headerHeight: 70px;
+$selectWidth: 200px;
+
 @mixin mqViewportXs {
   @media only screen and (min-width: $viewport-xs-width) {
     @content;
