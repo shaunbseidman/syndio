@@ -18,6 +18,7 @@ const GroupSelect: React.FC<props> = ({
   const [pickedGroup, setPickedGroup] = useState('Choose a group');
   const [defaultGroup, setDefaultGroup] = useState('');
   const [endpointData, setEndpointData] = useState([]);
+  const [loading, setLoading] = useState(true);
   const ref = useRef<HTMLUListElement>(null);
 
   useEffect(() => {
@@ -34,11 +35,13 @@ const GroupSelect: React.FC<props> = ({
   };
 
   useEffect(() => {
+    setLoading(true);
     fetch('https://run.mocky.io/v3/9e343425-c47c-4c7f-a1ac-972c099be0ed')
       .then(response => response.json())
       .then(data => {
         setEndpointData(data);
         setDefaultGroup(data.map((item: GroupInterface) => item.label));
+        setLoading(false);
       });
   }, []);
 
@@ -68,8 +71,11 @@ const GroupSelect: React.FC<props> = ({
           className='drop-down-container'
         >
           <li className='drop-down-item default'>Change Group</li>
-          {endpointData.map((item: GroupInterface) => (
-            <li 
+          {/* During development - i had noticed that mocky.io can be pretty slow at times - add loading state if the request is taking a while */}
+          {loading ? <div>Groups are loading...</div> : 
+          <React.Fragment>
+            {endpointData.map((item: GroupInterface) => (
+              <li 
               key={item.id}
               aria-label={item.label}
               className={classNames('drop-down-item', { 'active': item.label === pickedGroup, 'inactive': item.label !== pickedGroup })}              
@@ -78,10 +84,11 @@ const GroupSelect: React.FC<props> = ({
                 setIsOpen(false);
                 onGroupChange(item.label); 
               }}
-            >
-              {item.label === GroupValues.GBF ? GroupValues.G1 : item.label === GroupValues.GBR ? GroupValues.G2 : null}
-            </li>
-          ))}
+              >
+                {item.label === GroupValues.GBF ? GroupValues.G1 : item.label === GroupValues.GBR ? GroupValues.G2 : null}
+              </li>
+            ))}
+          </React.Fragment>}
         </ul>
       )}
     </div>  
